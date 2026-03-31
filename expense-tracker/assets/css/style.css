@@ -1,0 +1,241 @@
+:root {
+    --bg: #f4f6fb;
+    --surface: #ffffff;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --primary: #4f46e5;
+    --danger: #ef4444;
+    --success: #10b981;
+    --border: #e5e7eb;
+    --shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+[data-theme='dark'] {
+    --bg: #0f172a;
+    --surface: #1e293b;
+    --text: #f8fafc;
+    --muted: #cbd5e1;
+    --border: #334155;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: Inter, 'Segoe UI', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+h1, h2, h3 { margin-top: 0; }
+
+.auth-wrapper {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    background: var(--surface);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+}
+
+.subtitle {
+    color: var(--muted);
+    margin-bottom: 1rem;
+}
+
+input, select, button {
+    font: inherit;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.7rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    color: var(--text);
+    margin-bottom: 0.8rem;
+}
+
+.btn {
+    border: none;
+    border-radius: 10px;
+    padding: 0.65rem 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+}
+.btn-primary { background: var(--primary); }
+.btn-secondary { background: #64748b; }
+.btn-danger { background: var(--danger); }
+.btn-success { background: var(--success); }
+.btn-small { padding: 0.35rem 0.6rem; font-size: 0.85rem; }
+
+.auth-link {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.alert {
+    padding: 0.7rem;
+    border-radius: 10px;
+    margin-bottom: 0.8rem;
+}
+.alert-error { background: #fee2e2; color: #991b1b; }
+.alert-success { background: #d1fae5; color: #065f46; }
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.topbar-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 1rem auto;
+    padding: 0 1rem 2rem;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.stat-card p {
+    font-size: 1.4rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.form-grid {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    align-items: end;
+}
+
+.table-wrap { overflow-x: auto; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 0.7rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.transactions-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.transactions-list li {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    padding: 0.65rem 0;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.5);
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+}
+
+.modal.hidden { display: none; }
+
+.modal-content {
+    background: var(--surface);
+    border-radius: 14px;
+    padding: 1rem;
+    width: 100%;
+    max-width: 520px;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.pagination {
+    display: flex;
+    gap: 0.35rem;
+    margin-top: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.toast-container {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    display: grid;
+    gap: 0.5rem;
+    z-index: 99;
+}
+
+.toast {
+    min-width: 220px;
+    background: #111827;
+    color: #fff;
+    border-radius: 10px;
+    padding: 0.65rem 0.8rem;
+}
+
+.toast.error { background: #991b1b; }
+.toast.success { background: #065f46; }
+
+@media (max-width: 768px) {
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .topbar-actions {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+}
