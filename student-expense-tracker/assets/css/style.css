@@ -1,0 +1,109 @@
+:root {
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --text: #111827;
+  --primary: #2563eb;
+  --border: #d1d5db;
+}
+
+body.dark {
+  --bg: #111827;
+  --card: #1f2937;
+  --text: #f9fafb;
+  --primary: #60a5fa;
+  --border: #374151;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.auth-body { display: grid; place-items: center; min-height: 100vh; }
+.auth-card, .panel, .card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.auth-card {
+  width: min(420px, 92vw);
+  padding: 1.2rem;
+}
+
+label { display: block; margin-top: 0.75rem; font-weight: 600; }
+input, select, button {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+}
+button { background: var(--primary); color: white; cursor: pointer; border: none; }
+
+.layout { display: flex; min-height: 100vh; }
+.sidebar {
+  width: 240px;
+  background: var(--card);
+  border-right: 1px solid var(--border);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.sidebar a {
+  text-decoration: none;
+  padding: 0.6rem;
+  border-radius: 8px;
+  color: var(--text);
+}
+.sidebar a.active, .sidebar a:hover { background: var(--primary); color: #fff; }
+.dark-btn { margin-top: auto; }
+
+.content { flex: 1; padding: 1rem; }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.card { padding: 1rem; }
+.card.danger { border-color: #ef4444; }
+.panel { margin-top: 1rem; padding: 1rem; overflow-x: auto; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  border-bottom: 1px solid var(--border);
+  padding: 0.6rem;
+  text-align: left;
+}
+
+.grid-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.2rem;
+}
+
+.inline { display: inline-block; margin-left: 0.3rem; }
+.error { color: #dc2626; }
+.success { color: #059669; }
+
+.chart-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+@media (max-width: 768px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; flex-direction: row; flex-wrap: wrap; }
+  .dark-btn { margin-top: 0; width: auto; }
+}
