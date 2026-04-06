@@ -1,0 +1,65 @@
+/* Base page style */
+body {
+    background: #f4f7fb;
+    color: #212529;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-brand {
+    letter-spacing: 0.3px;
+}
+
+.card {
+    border: 0;
+    border-radius: 14px;
+}
+
+.stat-card {
+    min-height: 120px;
+}
+
+.budget-alert {
+    border: 1px solid #f8b4b4;
+    background: #fff6f6;
+}
+
+.table th,
+.table td {
+    vertical-align: middle;
+}
+
+footer {
+    background: transparent;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background: #121212;
+    color: #eaeaea;
+}
+
+body.dark-mode .card,
+body.dark-mode .table,
+body.dark-mode .dropdown-menu,
+body.dark-mode .modal-content {
+    background: #1f1f1f;
+    color: #eaeaea;
+}
+
+body.dark-mode .table {
+    --bs-table-bg: #1f1f1f;
+    --bs-table-color: #eaeaea;
+    --bs-table-striped-bg: #292929;
+    --bs-table-striped-color: #eaeaea;
+}
+
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background: #2a2a2a;
+    color: #fff;
+    border-color: #444;
+}
+
+body.dark-mode .text-muted {
+    color: #b8b8b8 !important;
+}
