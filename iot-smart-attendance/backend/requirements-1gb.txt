@@ -1,0 +1,6 @@
+Flask==3.0.3
+Werkzeug==3.0.3
+openpyxl==3.1.5
+# Install hardware libs only on Raspberry Pi OS with compatible wheels
+RPi.GPIO==0.7.1
+pyserial==3.5
