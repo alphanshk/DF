@@ -3,7 +3,7 @@ require_once __DIR__ . '/../config/db.php';
 require_once __DIR__ . '/../config/helpers.php';
 
 if (current_user()) {
-    redirect('/index.php');
+    redirect('/user/home.php');
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -19,25 +19,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!$email || !$password) {
         set_flash('danger', 'Email and password are required.');
     } else {
-        $stmt = $pdo->prepare('SELECT id,name,email,password,role,status FROM users WHERE email = ? LIMIT 1');
+        $stmt = $pdo->prepare('SELECT id,name,email,password FROM users WHERE email = ? LIMIT 1');
         $stmt->execute([$email]);
         $user = $stmt->fetch();
 
         if (!$user || !password_verify($password, $user['password'])) {
             set_flash('danger', 'Invalid credentials.');
-        } elseif ($user['status'] !== 'active') {
-            set_flash('warning', 'Your account is not active. Current status: ' . $user['status']);
         } else {
             session_regenerate_id(true);
             $_SESSION['user'] = [
                 'id' => $user['id'],
                 'name' => $user['name'],
                 'email' => $user['email'],
-                'role' => $user['role'],
             ];
-
-            if ($user['role'] === 'admin') redirect('/admin/dashboard.php');
-            if ($user['role'] === 'seller') redirect('/seller/dashboard.php');
             redirect('/user/home.php');
         }
     }
@@ -47,8 +41,8 @@ include __DIR__ . '/../includes/header.php';
 ?>
 <div class="row justify-content-center">
     <div class="col-md-5">
-        <div class="card shadow-sm">
-            <div class="card-body">
+        <div class="card shadow-sm tracker-card">
+            <div class="card-body p-4">
                 <h4 class="mb-3">Login</h4>
                 <form method="post">
                     <input type="hidden" name="csrf_token" value="<?= e(csrf_token()) ?>">

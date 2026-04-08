@@ -1,7 +1,7 @@
 <?php
 // PDO database connection settings.
 $host = '127.0.0.1';
-$dbname = 'ecommerce';
+$dbname = 'expense_tracker';
 $username = 'root';
 $password = '';
 $charset = 'utf8mb4';
