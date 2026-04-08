@@ -1,3 +1,24 @@
-body { background: #f8f9fa; }
-.stat-card { border-left: 4px solid #0d6efd; }
-.card-img-top { object-fit: cover; height: 180px; }
+body {
+    background: #f4f7fb;
+}
+
+.tracker-card {
+    border: 0;
+    border-radius: 1rem;
+}
+
+.summary-card {
+    border: 0;
+    border-radius: .85rem;
+}
+
+.summary-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.table thead th {
+    font-size: .9rem;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+}

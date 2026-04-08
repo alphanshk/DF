@@ -1,2 +1,1 @@
-// Project-wide JavaScript placeholder.
-console.log('E-Commerce app loaded');
+console.log('Expense Tracker loaded');

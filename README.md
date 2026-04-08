@@ -1,66 +1,48 @@
-# Core PHP + MySQL E-Commerce System
+# Expense Tracker (Core PHP + MySQL)
 
-Production-oriented e-commerce web app with **one common login** for three roles:
-- Admin
-- Seller
-- User
+A clean, single-purpose expense tracker website with only:
+- User registration
+- User login/logout
+- Personal expense dashboard
 
 ## Tech Stack
-- PHP (Core PHP, no framework)
-- MySQL + PDO prepared statements
-- HTML/CSS/JS + Bootstrap 5
+- PHP (Core PHP)
+- MySQL + PDO
+- Bootstrap 5
 
 ## Features
-- Common login (`/auth/login.php`) with role-based redirects
-- Password hashing with `password_hash()` and verification with `password_verify()`
-- Registration for User/Seller (Seller defaults to pending)
-- Admin: dashboard, sellers approval/block, categories, all orders, users management
-- Seller: dashboard, product CRUD, image upload validation, own orders
-- User: browse products, search/filter, pagination, cart, checkout, order history, profile update
-- CSRF token protection for forms
-- Session-based auth and flash messages
-- Input validation + output escaping via `htmlspecialchars`
+- Secure authentication (`password_hash`, `password_verify`)
+- CSRF protection on forms
+- Add expense entries
+- Delete expense entries
+- Monthly view selector with month-wise expense list
+- Summary cards for all-time and selected-month insights
+- Category-wise monthly breakdown
 
-## Folder Structure
+## Project Structure
 ```
 /
-|-- config/
-|   |-- db.php
-|   |-- helpers.php
 |-- auth/
 |   |-- login.php
 |   |-- register.php
 |   |-- logout.php
-|-- admin/
-|-- seller/
-|-- user/
-|-- includes/
-|-- assets/
-|-- uploads/
+|-- config/
+|   |-- db.php
+|   |-- helpers.php
 |-- database/
-|   |-- ecommerce.sql
+|   |-- expense_tracker.sql
+|-- includes/
+|-- user/
+|   |-- home.php
+|-- assets/
+|   |-- css/style.css
+|   |-- js/app.js
+|-- index.php
 ```
 
-## Installation Steps
-1. Clone/copy project into your web root (`htdocs`, `www`, etc.).
-2. Create database and tables:
-   - Import `database/ecommerce.sql` in MySQL.
-3. Update DB credentials in `config/db.php`.
-4. Ensure `uploads/` folder is writable by web server.
-5. Start Apache + MySQL.
-6. Open app in browser:
-   - `/auth/login.php`
-
-## Default Admin Login
-- Email: `admin@example.com`
-- Password: `Admin@123`
-
-## Security Notes
-- All database access uses PDO prepared statements.
-- CSRF tokens are checked for state-changing forms.
-- File uploads are limited by MIME and size (2MB).
-- Session regeneration on login.
-
-## Important
-- Admin users are created manually (SQL seed included).
-- Seller accounts are `pending` until admin approves.
+## Installation
+1. Copy this project into your PHP web root.
+2. Import `database/expense_tracker.sql` into MySQL.
+3. Set DB credentials in `config/db.php`.
+4. Open `/auth/register.php` and create your account.
+5. Login and start tracking expenses.
